@@ -1,0 +1,43 @@
+[package]
+name = "thresh_mpc"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.72"
+cxx = "1.0.100"
+futures = "0.3.28"
+log = "0.4.19"
+rand = "0.8.5"
+rand_chacha = { version = "0.3.1", features = ["simd", "serde", "serde1"] }
+rand_core = "0.6.4"
+seeded-random = "0.3.0"
+serde = { version = "1.0.156", features = ["derive"] }
+serde_json = "1.0.96"
+sha2 = "0.10.6"
+thiserror = "1.0.44"
+tokio = { version = "1.27.0", features = ["net", "sync", "io-util", "rt", "rt-multi-thread", "macros", "process"] }
+
+[build-dependencies]
+cxx-build = "1.0"
+
+[dev-dependencies]
+argh = "0.1.10"
+tokio = { version = "1.27.0", features = ["net", "sync", "io-util", "rt", "rt-multi-thread", "macros", "process", "time"] }
+env_logger = "0.10.0"
+
+[features]
+
+[lib]
+name = "thresh_mpc"
+
+#[[example]]
+#name = "aes"
+
+[[example]]
+name = "benchmarks"
+
+[profile.release]
+debug = true
